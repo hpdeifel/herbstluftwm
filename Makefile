@@ -19,7 +19,7 @@ HERBSTLUFTWMDOC = doc/herbstluftwm.txt
 TUTORIAL = doc/herbstluftwm-tutorial.txt
 
 .PHONY: depend all all-nodoc doc install install-nodoc info www
-.PHONY: cleandoc cleanwww cleandeps clean
+.PHONY: cleandoc cleanwww cleandeps clean test
 
 all: $(TARGETS) doc
 all-nodoc: $(TARGETS)
@@ -172,3 +172,6 @@ www:
 
 cleanwww:
 	make -C www clean
+
+test: $(TARGETS)
+	cd ./tests; ./run_tests.sh
